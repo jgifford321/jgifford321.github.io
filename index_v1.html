@@ -1,0 +1,249 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8" />
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <title>Solow Growth Model</title>
+
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link href="css/app.css" type="text/css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <script src="js/solow_v1.js"></script>
+  </head>
+  <body>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Solow Growth Model</h1>
+        <hr>
+      </div>
+    </div>
+ 
+
+  <div class="row">
+    <div class="large-12 columns">
+      <b>Background</b>
+      <p>The Solow Romer growth model is a basic account of the link between physical capital accumulation, technological progress, and economic growth. The four basic components of the model are:
+      <p><b>the production function:</b> 
+      <p> \(Y_t = K_t^{\alpha} (A_tL_{Yt})^{1-\alpha}\)
+      <p><b>national consumption function:</b> 
+      <p> \(C_t = (1-s) Y_t\)
+      <p><b>the national savings-investment identity:</b> 
+      <p> \(Y_t = C_t + I_t\)
+      <p><b>the law of motion of captial:</b>
+      <p>\(\Delta K_{t+1} = I_t - \delta K_t\)
+      <p> where \(Y_t\) denotes real GDP, \(K_t\) is the stock of physical capital, \(A_t\) is the TFP level, \(C_t\) is consumption, and \(I_t\) is investment in new physical capital. The Solow-Romer model is frequently formulated using <em>continuous time</em> methods, but here \(t\) is discrete and increments annually.</p>
+      
+      <p>The first equation of the model is a standard Codd-Douglas production function and so the parameter \(A\) denotes total factor productivity and \(\alpha\) the capital share of national income. The second equation is a consumption function with \(s\) representing the saving rate. The third equation is the national income accounting identity for a closed economy without government purchases. The final equation is law of motion for the stock of physical capital where \(\delta\) is the share of the capital stock that falls apart or becomes obsolete each period.
+      <p>The intensive production function can be derived as follows:
+      <p> \(Y_t = K_t^{\alpha} (A_tL_{Yt})^{1-\alpha} = K_t^{\alpha} (A_t(1-l)L_t)^{1-\alpha}\)
+      <p> and,
+      <p> \(y_t = \frac{Y_t}{A_tL_t} = \frac{K_t^{\alpha} \left(A_t(1-l)L_t\right)^{1-\alpha}}{A_tL_t} = (\frac{K_t}{A_tL_t})^\alpha(1-l)^{1-\alpha}\)
+      <p> therefore,
+      <p> \(y_t = k_t^\alpha(1-l)^{1-\alpha}\)
+     
+     
+        <p>the inetnsive form for law of motion of captial is derived as follows:
+        <p>\(\Delta K_{t+1} = I_t - \delta K_t = sY_t - \delta K_t\)
+        <p> and,
+        <p>\(k_t = \frac{K_t}{A_tL_t} \rightarrow g_{k_t} = g(\frac{K_t}{A_tL_t})   \)
+        <p> therefore,
+        <p>\(\frac{\Delta k_{t+1}}{k_t} = \frac{\Delta K_{t+1}}{K_t}-\frac{\Delta A_{t+1}}{A_t} - \frac{\Delta L_{t+1}}{L_t} \) 
+        <p> Because, \(A_{t+1} = z(\frac{L_{at}}{L_t})A_t \) or \(\frac{A_{t+1}}{A_t} = zl\)
+        <p> and, \(\frac{\Delta L_{t+1}}{L_t} = n\)
+        <p>\(\frac{\Delta k_{t+1}}{k_t} = \frac{sY_t-\delta K_t}{K_t}- zl - n \)
+        <p>\(\frac{\Delta k_{t+1}}{k_t} = \frac{sY_t}{K_t}-\delta - zl - n \rightarrow \Delta k_{t+1} = \frac{sY_t}{K_t}\frac{K_t}{A_tL_t}-(zl + n + \delta)k_t \rightarrow \Delta k_{t+1} = sy_t - (zl + n + \delta)k_t\) 
+        <p>therefore, 
+        <p>**\(\Delta k_{t+1} = sk_{t}^\alpha (1-l) ^{1-\alpha} -(zl + n + \delta)k_t\)
+        
+        
+        
+        
+        
+        
+        
+
+      <h4>Instructions</h4>
+      <p>Use this tool to construct transition paths implied by the Solow growth model. You can use the tool to simulate how the model economy transitions from one steady state to another. You can also use the tool to simulate how the model economy approaches the steady state from an initial stock of capital per effective worker that is not a steady state.</p>
+        <ol>
+          <li><strong>Transition between steady states.</strong> Set the number of periods to simulate and leave the <em>Start in the steady state</em> box checked. Set all values in the <em>Initial parameter values</em> section. Then make sure that all values in the <em>New parameter values</em> section match those in the initial values section except for the parameter that you want to change. Check the <em>Show original path in <span class="red">red</span></em> box if you want to also see the original path with no paramter change. Click the <em>Submit</em> button. The parameter change will take place in the fifth period.</li>
+          <br>
+          <li><strong>Transition to the steady state.</strong> Set the number of periods to simulate. Uncheck the <em>Start in the steady state</em> box and enter an initial value of capital per effective worker. Set all values in the <em>Initial parameter values</em> section. Then make sure that all values in the <em>New parameter values</em> section match those in the initial values section. Click the <em>Submit</em> button.</li>
+        </ol>
+      <p>Results are displayed in the eight panels at the bottom of the page. Use the dropdown menu in the upper-right corner of each plot to download the image in png format. Click the "Download csv" button to download the data in both figures in a single csv file. <hr/></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+
+      <form id="ParameterInput">
+        <fieldset>
+
+
+          <legend>Simulation Initialization</legend>
+          <div class="row">
+            <div class="large-12 columns">
+              <label for="tmax">Number of periods to simulate</label>
+              <input id="tmax" type="number" min="2" step="1" value="100">
+            </div>
+            <div class="large-12 columns">
+              <label for="K0">Initial capital</label>
+              <input id="K0" type="number" min="0" step="any"value="1">
+            </div>
+            <div class="large-12 columns">
+              <label for="A0">Initial TFP</label>
+              <input id="A0" type="number" min="0" step="any"value="1">
+            </div>
+
+            <div class="large-12 columns">
+              <label for="L0">Initial Labor Supply</label>
+              <input id="L0" type="number" min="0" step="any"value="1">
+            </div>
+
+
+
+            <div class="large-4 columns">
+              &nbsp;
+            </div>
+            <div class="large-4 columns">
+              <label for="counterFactual"></label>
+              <input id="counterFactual" type="checkbox" >Show original path in <span class="red">red</span>
+            </div>     
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Initial parameter values</legend>
+          <div class="row">
+            <div class="large-4 columns">
+              <label for="alpha0">Capital share of income: &#945;</label>
+              <input id="alpha0" type="number" min="0.01" step="0.01" value="0.35">
+            </div>
+            <div class="large-4 columns">
+              <label for="s0">Saving rate: <em>s</em></label>
+              <input id="s0" type="number" step="0.01" value="0.1">
+            </div>
+            <div class="large-4 columns">
+              <label for="delta0">Capital depreciation rate: &#948;</label>
+              <input id="delta0" type="number" step="0.01" value="0.06">
+            </div>
+            <div class="large-4 columns">
+              <label for="n0">Growth rate of population: <em>n</em></label>
+              <input id="n0" type="number" step="0.01" value="0.01">
+            </div>
+            <div class="large-4 columns">
+              <label for="l0">R&D Ratio: <em>l</em></label>
+              <input id="l0" type="number" step="0.01" value=".01">
+            </div>
+            <div class="large-4 columns">
+              <label for="z0">TFP Growth:  <em>z</em></label>
+              <input id="z0" type="number" step="0.01" value="0.04">
+            </div>
+
+          </div>
+        </fieldset>
+    
+        <fieldset>
+          <legend>New parameter values</legend>
+          <div class="row">
+
+
+            <div class="large-12 columns">
+              <label for="K1">Shock to Capital: Factor of K</label>
+              <input id="K1" type="number" step="0.01" value="1">
+            </div>
+            <div class="large-12 columns">
+              <label for="L1">Shock to Labor: Factor of L</label>
+              <input id="L1" type="number" step="0.01" value="1">
+            </div>
+
+            <div class="large-4 columns">
+              <label for="alpha1">Capital share of income: &#945;</label>
+              <input id="alpha1" type="number" step="0.01" value="0.35">
+            </div>
+
+            <div class="large-4 columns">
+              <label for="s1">Saving rate: <em>s</em></label>
+              <input id="s1" type="number" step="0.01" value="0.1">
+            </div>
+
+            <div class="large-4 columns">
+              <label for="delta1">Capital depreciation rate: &#948;</label>
+              <input id="delta1" type="number" step="0.01" value="0.06">
+            </div>
+
+            <div class="large-4 columns">
+              <label for="n1">Growth rate of population: <em>n</em></label>
+              <input id="n1" type="number" step="0.01" value="0.01">
+            </div>  
+            <div class="large-4 columns">
+              <label for="l1">R&D Ratio: <em>l</em></label>
+                <input id="l1" type="number" step="0.01" value=".01">
+            </div>
+            <div class="large-4 columns">
+              <label for="z1">TFP Growth:  <em>z</em></label>
+              <input id="z1" type="number" step="0.01" value="0.04">
+            </div>         
+
+          </div>
+
+
+        </fieldset>  
+          <div class="large-4 columns">
+            <button type="submit" class="small button" onclick="window.location.href='#plotBox'">Submit</button>
+          </div>
+      </form>
+          <div class="large-4 columns">
+          <button type="reload" class="small button" onclick="reloadFunction()">Reset</button>
+        </div>
+        <div class="large-4  columns">
+          <button type="download" class="small button" onclick="downloadFunction()">Download CSV</button>
+        </div>
+
+      <hr/>
+    </div>
+  </div>
+  
+  <div class="plotBox" id ="plotBox">
+    <div class="column24">  
+      <div id="capital_per_worker" class="plot"></div>
+   
+
+
+
+    <!-- <div class="column24">
+      <div id="output_per_worker" class="plot"></div>
+    </div>
+    <div class="column24">
+      <div id="consumption" class="plot"></div>
+    </div> -->
+    <!-- <div class="column24">
+      <div id="consumption" class="plot"></div>
+    </div>  -->
+    
+
+  </div>
+  
+ 
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr/>
+    </div>
+  </footer>
+    
+  </body>
+</html>
